@@ -1,0 +1,118 @@
+:root {
+    --hk-dark: #1E181A;
+    --hk-pink: #ED164F;
+    --hk-yellow: #FFE717;
+    --hk-white: ivory white;
+}
+
+body {
+    font-family: 'Pacifico', cursive;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--hk-dark);
+    min-height: 100vh;
+    image-rendering: auto;
+}
+
+.falling-items-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.falling-item {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('hellokitty.png');
+    background-size: cover;
+    opacity: 0;
+    animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.content-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.main-title {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    color: var(--hk-pink);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.sub-text {
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    font-size: 1.2em;
+    color: var(--hk-dark);
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.photo-item {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border: 5px solid var(--hk-dark);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.photo-item:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 3px solid var(--hk-dark);
+    border-radius: 10px;
+}
+
+.photo-caption {
+    margin-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.1em;
+    color: var(--hk-pink);
+    text-align: center;
+}
